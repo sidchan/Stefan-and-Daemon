@@ -17,4 +17,4 @@ class Gamespot(threading.Thread):
             
             scorgrab.Gamespot()
             platform=a.tbody.td.span.contents[0]
-            scoreline=a.find("td",{"class":"score"})
+            scoreline=a.find("td",{"class":"score"}) 
