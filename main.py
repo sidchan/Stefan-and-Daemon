@@ -1,23 +1,32 @@
 import urllib2
 from bs4 import BeautifulSoup as bs
-import thread
+import threading
 import scoregrab
 import linkgrab
+import metacritic
 
 GRABSITES=[]
-LINKSITES=[]
+LINKSITES=["http://asia.gamespot.com/reviews.html?mode=all&page="+str(i) for i in range(10)]
 GRABCOUNT=0
 LINKCOUNT=0
-
+running=0
 
 def main():
-    while LINKSITES:
-        if LINKCOUNT<10:
-            if "gamespot" in link:
-                linkgrab.Gamespot(link).start()
-                LINKCOUNT+=1
-        else:
-            time.sleep(0.1)
+    global LINKSITES, LINKCOUNT, running
+    running=1
+    while LINKSITES or running:
+        for link in LINKSITES:
+            LINKSITES.remove(link)
+            if LINKCOUNT<10:
+                if "gamespot" in link:
+                    linkgrab.Gamespot(link).start()
+                    LINKCOUNT+=1
+                if "metacritic" in link:
+                    metacritic.Metacritic(link).start()
+                
+        
+                else:
+                    time.sleep(0.1)
 
 
 #def main():
