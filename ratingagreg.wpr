@@ -1,0 +1,10 @@
+#!wing
+#!version=3.0
+##################################################################
+# Wing IDE project file                                          #
+##################################################################
+[project attributes]
+proj.file-list = [loc('linkgrab.py'),
+                  loc('main.py'),
+                  loc('scoregrab.py')]
+proj.file-type = 'shared'
