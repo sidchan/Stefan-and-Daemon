@@ -8,7 +8,7 @@ url="http://m.ign.com/games/reviews-editors-choice/p1"
 soup=bs(urlopen(url).read())
 info=soup.find("ul")
 ab=info.li
-#print str(ab)
+print str(ab)
 while (ab):
       name=str(ab.a.findAll("span")[1].h3.contents[0])
       rating=str(ab.a.span.contents[0])
