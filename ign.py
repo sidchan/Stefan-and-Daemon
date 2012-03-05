@@ -3,8 +3,8 @@ from urllib2 import urlopen
 from urlparse import urljoin,urlsplit
 from bs4 import BeautifulSoup as bs 
 
-#for i in range(85):
-url="http://m.ign.com/games/reviews-editors-choice/p1"
+for i in range(85):
+url="http://m.ign.com/games/reviews-editors-choice/p" + i
 soup=bs(urlopen(url).read())
 info=soup.find("ul")
 ab=info.li
