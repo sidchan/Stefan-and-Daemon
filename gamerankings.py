@@ -4,8 +4,8 @@ from urlparse import urljoin,urlsplit
 from bs4 import BeautifulSoup as bs
 from bs4 import SoupStrainer
 
-#for i in range(85):
-url="http://www.gamerankings.com/browse.html?page=1"
+for i in range(85):
+url="http://www.gamerankings.com/browse.html?page=" + i
 a=urlopen(url).read()
 b=SoupStrainer("table")
 soup=bs(a,parseOnlyThese=b)
